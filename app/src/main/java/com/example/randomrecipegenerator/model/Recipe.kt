@@ -1,7 +1,9 @@
 package com.example.randomrecipegenerator.model
 
+import com.google.gson.annotations.SerializedName
+
 data class Recipe(
-    val title: String,
-    val image: String,
-    val instructions: String
+    @SerializedName("strMeal") val title: String?,
+    @SerializedName("strMealThumb") val image: String?,
+    @SerializedName("strInstructions") val instructions: String?
 )
