@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Random Recipe Generator</string>
+    <string name="get_random_recipe">Get Random Recipe</string>
+    <string name="view_instructions">View Instructions</string>
+    <string name="back">Back</string>
+    <string name="no_instructions">No instructions available.</string>
+    <string name="press_button">Press the button to get a random recipe</string>
+</resources>
