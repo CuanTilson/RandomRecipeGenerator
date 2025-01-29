@@ -10,4 +10,7 @@
     <string name="no_instructions_available">No instructions available</string>
     <string name="no_title_available">No title available</string>
     <string name="unknown_error">An unknown error occurred</string>
+    <string name="instructions">Instructions</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="method">Method</string>
 </resources>
