@@ -1,3 +1,7 @@
 package com.example.randomrecipegenerator.model
 
-data class RecipeApiResponse(val meals: List<Recipe>?)
+import com.google.gson.annotations.SerializedName
+
+data class RecipeApiResponse(
+    @SerializedName("meals") val meals: List<Recipe>?
+)
