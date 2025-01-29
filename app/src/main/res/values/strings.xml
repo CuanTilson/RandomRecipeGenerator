@@ -6,4 +6,8 @@
     <string name="back">Back</string>
     <string name="no_instructions">No instructions available.</string>
     <string name="press_button">Press the button to get a random recipe</string>
+    <string name="recipe_image_description">Recipe Image</string>
+    <string name="no_instructions_available">No instructions available</string>
+    <string name="no_title_available">No title available</string>
+    <string name="unknown_error">An unknown error occurred</string>
 </resources>
