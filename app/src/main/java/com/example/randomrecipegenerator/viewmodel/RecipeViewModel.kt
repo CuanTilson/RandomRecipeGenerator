@@ -27,6 +27,10 @@ class RecipeViewModel : ViewModel() {
     var uiState: RecipeUiState by mutableStateOf(RecipeUiState.Initial)
         private set
 
+    // List to store previous recipes
+    private val _previousRecipes = mutableListOf<Recipe>()
+    val previousRecipes: List<Recipe> = _previousRecipes
+
     fun fetchRandomRecipe() {
         viewModelScope.launch {
             uiState = RecipeUiState.Loading
@@ -87,6 +91,10 @@ class RecipeViewModel : ViewModel() {
                         measure20 = it.measure20
                     )
                 }
+                // Add the current recipe to the history
+                if (recipe != null) {
+                    _previousRecipes.add(recipe)
+                }
                 // Lift the assignment out of the if statement
                 uiState = recipe?.let { RecipeUiState.Success(it) } ?: RecipeUiState.Error("No recipe found")
             } catch (e: IOException) {
@@ -97,5 +105,8 @@ class RecipeViewModel : ViewModel() {
                 uiState = RecipeUiState.Error("Failed to fetch recipe: ${e.message}")
             }
         }
+    }
+    fun setRecipe(recipe: Recipe) {
+        uiState = RecipeUiState.Success(recipe)
     }
 }
