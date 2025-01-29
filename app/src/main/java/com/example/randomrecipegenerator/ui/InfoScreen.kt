@@ -12,6 +12,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -147,14 +148,18 @@ fun Instructions(instructions: String?) {
             modifier = Modifier.padding(bottom = 8.dp)
         )
         if (instructions != null) {
-            val steps = instructions.split(Regex("\\r?\\n\\r?\\n"))
+            val steps = if (instructions.contains("\r\n\r\n")) {
+                instructions.split(Regex("\\r?\\n\\r?\\n"))
+            } else {
+                instructions.split(Regex("(?<=[.!?])\\s+"))
+            }
             steps.forEachIndexed { index, step ->
                 Text(
                     text = "${index + 1}. $step",
                     textAlign = TextAlign.Start,
                     modifier = Modifier.fillMaxWidth()
                 )
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(16.dp))
             }
         } else {
             Text(text = stringResource(R.string.no_instructions_available))
