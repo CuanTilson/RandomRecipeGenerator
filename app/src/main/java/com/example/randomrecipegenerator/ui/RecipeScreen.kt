@@ -1,6 +1,7 @@
 package com.example.randomrecipegenerator.ui
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -87,6 +88,10 @@ fun RecipeScreen(viewModel: RecipeViewModel, navController: NavController) {
                 Spacer(modifier = Modifier.height(16.dp))
                 Button(onClick = { viewModel.fetchRandomRecipe() }) {
                     Text(stringResource(R.string.get_random_recipe))
+                }
+                Spacer(modifier = Modifier.height(16.dp))
+                Button(onClick = { navController.navigate("history") }) {
+                    Text(stringResource(R.string.view_previous_recipes))
                 }
             }
         }
