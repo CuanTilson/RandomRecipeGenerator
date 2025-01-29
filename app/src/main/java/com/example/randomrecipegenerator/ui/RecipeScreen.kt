@@ -43,7 +43,8 @@ fun RecipeScreen(viewModel: RecipeViewModel, navController: NavController) {
             }
 
             is RecipeViewModel.RecipeUiState.Success -> {
-                Text(state.recipe.title, style = MaterialTheme.typography.headlineMedium)
+                // Check if title is null and provide a default value
+                Text(text = state.recipe.title ?: stringResource(R.string.no_title_available), style = MaterialTheme.typography.headlineMedium)
                 Spacer(modifier = Modifier.height(16.dp))
                 Button(onClick = { navController.navigate("info") }) {
                     Text(stringResource(R.string.view_instructions))
