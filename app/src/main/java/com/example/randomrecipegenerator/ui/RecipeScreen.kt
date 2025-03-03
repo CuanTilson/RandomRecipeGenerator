@@ -80,7 +80,6 @@ fun RecipeScreen(viewModel: RecipeViewModel, navController: NavController) {
                     }
 
                     is RecipeViewModel.RecipeUiState.Initial -> {
-                        // Optionally display a message or do nothing
                         Text(stringResource(R.string.press_button))
                     }
                 }
